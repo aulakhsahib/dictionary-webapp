@@ -1,6 +1,11 @@
 /* eslint-disable react/prop-types */
+import { useRef } from "react";
 import "./Word.css";
+import playIcon from "../../assets/images/icon-play.svg";
+
 export default function Word({ word, phonetic, phonetics }) {
+  const audioTag = useRef(null);
+
   let ph, audio;
   const phoneticsObjectUS = phonetics.find((p) => {
     return p.audio.includes(`us.mp3`);
@@ -18,17 +23,22 @@ export default function Word({ word, phonetic, phonetics }) {
     }
   }
 
+  const playButtonClickHandler = () => {
+    audioTag.current.play();
+  };
+
   return (
-    <section>
-      <h1>
-        <strong>Word</strong> : {word}
-      </h1>
-      <p>
-        <strong>Phonetic</strong> : {ph}
-      </p>
-      <p>
-        <strong>Audio</strong> : {audio}
-      </p>
+    <section className="word-section">
+      <h1 className="word-heading">{word}</h1>
+      <p className="word-phonetic">{ph}</p>
+      <div className="play-button-container">
+        {audio && (
+          <button onClick={playButtonClickHandler} className="play-button">
+            <img src={playIcon} alt="" />
+            <audio src={audio} ref={audioTag}></audio>
+          </button>
+        )}
+      </div>
     </section>
   );
 }

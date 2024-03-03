@@ -1,0 +1,53 @@
+.play-button {
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: transparent;
+}
+.play-button:focus {
+  outline: var(--purple);
+}
+
+.word-section {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  align-content: center;
+  grid-template-areas:
+    "word     audio"
+    "phonetic audio";
+}
+
+.word-heading {
+  grid-area: word;
+  font-size: 4rem;
+  line-height: 1.2em;
+}
+
+.word-phonetic {
+  grid-area: phonetic;
+  font-size: 1.125rem;
+  line-height: 1.35em;
+  color: var(--purple);
+}
+
+.play-button-container {
+  grid-area: audio;
+  align-self: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .word-heading {
+    font-size: 3rem;
+    line-height: 1.2em;
+  }
+}
+@media only screen and (max-width: 500px) {
+    .word-heading {
+      font-size: 2rem;
+      line-height: 1.2em;
+    }
+    .play-button > img{
+    width: 48px;
+  }
+}
