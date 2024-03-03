@@ -45,9 +45,6 @@ export default function Dictionary({ wordToSearch }) {
         phonetic={data[0].phonetic}
         phonetics={data[0].phonetics}
       />
-      <br />
-      <br />
-      <br />
       {data[0].meanings.map((m, index) => {
         return (
           <Meaning
@@ -63,3 +60,46 @@ export default function Dictionary({ wordToSearch }) {
     </section>
   );
 }
+
+/* 
+Data Object Properties
+
+1. word (string)
+2. phonetic (string)
+3.phonetics (Array of objects look for text and audio property)
+4. meanings (Array of objects having properties partOfSpeech and definitions)
+*/
+
+// {
+//     word: "",
+//     phonetic: "",
+//     phonetics: [
+//         {
+//             text: "",
+//             audio: ""
+//         }
+//     ],
+//     meanings: [
+//         {
+//             partOfSpeech: "",
+//             antonyms: [],
+//             synonyms: [],
+//             definitions: [
+//                 {
+//                     definition: "",
+//                     example: "" || [],
+//                 }
+//             ]
+//         }
+//     ]
+// }
+
+/* 
+Exceptions
+1. Word Not Available
+2. phonetic not available
+3. phonetics not available or not available for us. phonetic text available audio not available
+4. antonyms not available or more than one available
+5. same for synonyms
+6. definitions example not available or more than one
+*/

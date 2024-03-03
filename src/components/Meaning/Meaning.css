@@ -1,0 +1,54 @@
+.partOfSpeech-container {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.partOfSpeech-container > p {
+  font-size: 1.25rem;
+  line-height: 1.2em;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.grey-300-text {
+  color: var(--grey-300);
+}
+
+
+.partOfSpeech-container > hr {
+  width: 100%;
+  color: var(--partsOfSpeech-hr);
+}
+
+section.meaning-section ul.definition-list {
+  display: block;
+  list-style-type: disc;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: 24px;
+}
+section.meaning-section ul.example-list {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: var(--grey-300);
+}
+.definition-list {
+}
+
+.example-list {
+}
+
+.definition-list > li,
+.example-list > li {
+  display: list-item;
+}
+.definition-list > li::marker {
+  color: var(--purple);
+}
+
+.synonyms-antonyms-container {
+    color: var(--purple);
+}
+

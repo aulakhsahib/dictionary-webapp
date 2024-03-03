@@ -92,8 +92,10 @@ ol[class] {
   /* Search Bar Custom Properties */
   --search-bar-bg-color: var(--offwhite);
   --search-bar-text-color: var(--grey-700);
-  
-  
+
+  /*  partOFSpeech Custom Properties */
+  --partsOfSpeech-hr: var(--grey-100);
+
   /* Font Size Custom Properties */
   --font-300: 0.875rem;
   --line-height-300: 1.215em;
@@ -111,13 +113,16 @@ ol[class] {
   /* Body Custom Properties */
   --body-bg-color: var(--black);
   --body-text-color: var(--white);
-  
+
   /* Toggle Custom Properties */
   --toggle-bg-color: var(--purple);
-  
+
   /* Search Bar Custom Properties */
   --search-bar-bg-color: var(--grey-800);
   --search-bar-text-color: var(--white);
+
+  /*  partOFSpeech Custom Properties */
+  --partsOfSpeech-hr: var(--grey-500);
 }
 
 body {
