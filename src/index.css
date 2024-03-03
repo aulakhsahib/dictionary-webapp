@@ -80,8 +80,38 @@ ol[class] {
   --red: hsl(0, 100%, 66%);
 
   --font-family: '"Inter", "sans-serif"';
+
+  /* Body Custom Properties */
+  --body-bg-color: var(--white);
+  --body-text-color: var(--grey-700);
+
+  /* Toggle Custom Properties */
+  --toggle-bg-color: var(--grey-300);
+
+  /* Font Size Custom Properties */
+  --font-300: 0.875rem;
+  --line-height-300: 1.215em;
+  --font-400: 1.125rem;
+  --line-height-400: 1.35em;
+  --font-500: 1.25rem;
+  --line-height-500: 1.2em;
+  --font-600: 1.5rem;
+  --line-height-600: 1.2em;
+  --font-700: 4rem;
+  --line-height-700: 1.2em;
+}
+
+:root:has(input.color-theme-toggle:checked) {
+  /* Body Custom Properties */
+  --body-bg-color: var(--black);
+  --body-text-color: var(--white);
+
+  /* Toggle Custom Properties */
+  --toggle-bg-color: var(--purple);
 }
 
 body {
   font-family: var(--font-family);
+  color: var(--body-text-color);
+  background-color: var(--body-bg-color);
 }

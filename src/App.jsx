@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./App.css";
 import Dictionary from "./components/Dictionary/Dictionary";
 import SearchBar from "./components/SearchBar/SearchBar";
-import FontDropdown from "./components/FontDropdown/FontDropdown";
 import Navbar from "./components/Navbar/Navbar";
 
 function App() {
@@ -15,7 +14,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="main-wrapper-container">
       <Navbar />
       <p>User Input {userInput}</p>
       <SearchBar
@@ -24,7 +23,6 @@ function App() {
         submitHandler={onSubmitSearchBar}
       />
       {wordToSearch && <Dictionary wordToSearch={wordToSearch} />}
-      <FontDropdown />
     </div>
   );
 }

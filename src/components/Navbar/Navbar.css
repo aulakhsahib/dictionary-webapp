@@ -1,3 +1,4 @@
+/* Toggle Stylings Start */
 input[type="checkbox"].color-theme-toggle {
   visibility: hidden;
   position: fixed;
@@ -22,10 +23,13 @@ input[type="checkbox"].color-theme-toggle + label::before {
   content: "";
   width: var(--before-width);
   height: var(--before-height);
-  background-color: var(--purple);
+  background-color: var(--toggle-bg-color);
   border-radius: calc((3 / 4) * var(--before-width));
   padding: 0.2em;
   outline: 1px solid black;
+}
+input[type="checkbox"].color-theme-toggle + label:hover::before {
+  background-color: var(--purple);
 }
 
 input[type="checkbox"].color-theme-toggle + label::after {
@@ -41,4 +45,38 @@ input[type="checkbox"].color-theme-toggle + label::after {
 
 input[type="checkbox"]:checked.color-theme-toggle + label::after {
   transform: translateX(100%);
+}
+
+/* Toggle Stylings End */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.nav-fontdropdown {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.navbar-theme-toggle-container {
+  display: flex;
+  align-items: center;
+  column-gap: 0.75rem;
+}
+
+.moon-icon > path {
+  stroke: var(--toggle-bg-color);
+}
+.moon-icon:hover > path {
+  stroke: var(--purple);
+}
+
+@media only screen and (max-width: 500px) {
+  .nav-fontdropdown {
+    font-size: 0.875rem;
+  line-height: 1.215em;
+  }
 }

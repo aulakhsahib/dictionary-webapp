@@ -2,7 +2,7 @@
 import "./FontDropdown.css";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { useState, useEffect, useRef, useMemo } from "react";
-export default function FontDropdown({ defaultLabel }) {
+export default function FontDropdown({ defaultLabel, className }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
 
@@ -57,36 +57,33 @@ export default function FontDropdown({ defaultLabel }) {
   }, [selectedOption]);
 
   return (
-    <>
-      <div className="dd-parent-container" ref={dropdownContainer}>
-        <div className="dd-header" onClick={headerClickHandler}>
-          <p>{selectedOption.label || defaultLabel}</p>
-          <IoIosArrowDropdownCircle className="dd-icon" />
-        </div>
-        <div className="dd-label-list-wrapper">
-          {isOpen && (
-            <ul className="dd-label-list">
-              {options.map((option, index) => (
-                <li
-                  className="dd-label"
-                  key={index}
-                  onClick={() =>
-                    labelClickHandler({
-                      label: option.label,
-                      value: option.value,
-                    })
-                  }
-                  style={{fontFamily: option.value}}
-                >
-                  {option.label}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+    <div className={`dd-parent-container ${className}`} ref={dropdownContainer}>
+      <div className="dd-header" onClick={headerClickHandler}>
+        <p>{selectedOption.label || defaultLabel}</p>
+        <IoIosArrowDropdownCircle className="dd-icon" />
       </div>
-      <p>Selected Value : {selectedOption.value}</p>
-    </>
+      <div className="dd-label-list-wrapper">
+        {isOpen && (
+          <ul className="dd-label-list">
+            {options.map((option, index) => (
+              <li
+                className="dd-label"
+                key={index}
+                onClick={() =>
+                  labelClickHandler({
+                    label: option.label,
+                    value: option.value,
+                  })
+                }
+                style={{ fontFamily: option.value }}
+              >
+                {option.label}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
   );
 }
 
