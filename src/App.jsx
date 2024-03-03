@@ -6,21 +6,29 @@ import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   const [wordToSearch, setWordToSearch] = useState("");
+  const [showWordEmptyError, setWordEmptyError] = useState(false);
 
   const [userInput, setUserInput] = useState("");
   const onSubmitSearchBar = (e) => {
     e.preventDefault();
-    setWordToSearch(userInput);
+    if (userInput) {
+      setWordEmptyError(false);
+      setWordToSearch(userInput)
+    }
+    else {
+      setWordEmptyError(true);
+      setWordToSearch("");
+    }
   };
 
   return (
     <div className="main-wrapper-container">
       <Navbar />
-      <p>User Input {userInput}</p>
       <SearchBar
         userInput={userInput}
         setUserInput={setUserInput}
         submitHandler={onSubmitSearchBar}
+        showWordEmptyError={showWordEmptyError}
       />
       {wordToSearch && <Dictionary wordToSearch={wordToSearch} />}
     </div>

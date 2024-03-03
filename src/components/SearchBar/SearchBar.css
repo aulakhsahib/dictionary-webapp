@@ -1,0 +1,55 @@
+.search-bar-form {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.word-search-bar {
+  --search-bar-padding: 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.word-search-bar::after {
+  display: block;
+  position: absolute;
+  content: url("../../assets/images/icon-search.svg");
+  right: var(--search-bar-padding);
+}
+
+.word-search-bar > input {
+  width: 100%;
+  padding: var(--search-bar-padding);
+  border-radius: 1rem;
+  border: none;
+  background-color: var(--search-bar-bg-color);
+  color: var(--search-bar-text-color);
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.word-search-bar > input:focus {
+  outline: 1px solid var(--purple);
+}
+
+.word-search-bar.cannot-be-empty > input {
+  outline: 1px solid var(--red);
+}
+.word-search-bar.cannot-be-empty::before {
+  display: block;
+  content: "Whoops, can't be empty...";
+  color: red;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 6px);
+}
+
+@media only screen and (max-width: 500px) {
+  .word-search-bar {
+    --search-bar-padding: 0.75rem;
+  }
+  .word-search-bar > input {
+    font-size: 0.875rem;
+    line-height: 1.215em;
+  }
+}
