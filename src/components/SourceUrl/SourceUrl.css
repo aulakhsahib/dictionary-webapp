@@ -1,0 +1,11 @@
+.source-text {
+  color: var(--grey-300);
+  text-decoration: underline;
+}
+
+.source-para {
+  display: flex;
+  column-gap: 1rem;
+  row-gap: 0.25rem;
+  flex-wrap: wrap;
+}

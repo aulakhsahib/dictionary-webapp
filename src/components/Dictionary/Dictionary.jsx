@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import "./Dictionary.css";
 import Word from "../Word/Word";
 import Meaning from "../Meaning/Meaning";
+import SourceUrl from "../SourceUrl/SourceUrl";
 export default function Dictionary({ wordToSearch }) {
   const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${wordToSearch}`;
   const [data, setData] = useState([]);
@@ -19,11 +20,11 @@ export default function Dictionary({ wordToSearch }) {
         if (res.ok) return res.json();
 
         return res.json().then((err) => {
-          console.log(err);
           throw new Error(`${err.title} : ${err.message || res.statusText}`);
         });
       })
       .then((data) => {
+        console.log(data);
         setData(data);
         setLoading(false);
       })
@@ -44,25 +45,28 @@ export default function Dictionary({ wordToSearch }) {
     );
 
   return (
-    <section>
-      <Word
-        word={data[0].word}
-        phonetic={data[0].phonetic}
-        phonetics={data[0].phonetics}
-      />
-      {data[0].meanings.map((m, index) => {
-        return (
-          <Meaning
-            key={index}
-            wordToSearch={wordToSearch}
-            partOfSpeech={m.partOfSpeech}
-            definitions={m.definitions}
-            synonyms={m.synonyms}
-            antonyms={m.antonyms}
-          />
-        );
-      })}
-    </section>
+    <>
+      <section className="dictionary-container">
+        <Word
+          word={data[0].word}
+          phonetic={data[0].phonetic}
+          phonetics={data[0].phonetics}
+        />
+        {data[0].meanings.map((m, index) => {
+          return (
+            <Meaning
+              key={index}
+              wordToSearch={wordToSearch}
+              partOfSpeech={m.partOfSpeech}
+              definitions={m.definitions}
+              synonyms={m.synonyms}
+              antonyms={m.antonyms}
+            />
+          );
+        })}
+      </section>
+      <SourceUrl sourceUrl={data[0].sourceUrls[0]} />
+    </>
   );
 }
 

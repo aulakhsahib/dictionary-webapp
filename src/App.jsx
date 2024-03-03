@@ -31,6 +31,7 @@ function App() {
         showWordEmptyError={showWordEmptyError}
       />
       {wordToSearch && <Dictionary wordToSearch={wordToSearch} />}
+      <div className="source-container"></div>
     </div>
   );
 }
