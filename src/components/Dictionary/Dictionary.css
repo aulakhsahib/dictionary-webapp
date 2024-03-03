@@ -1,0 +1,13 @@
+.not-found-container {
+    text-align: center;
+}
+
+.emoji-container {
+    font-size: 4rem;
+}
+
+.not-found-message {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: var(--grey-300);
+}

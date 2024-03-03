@@ -19,9 +19,8 @@ export default function Dictionary({ wordToSearch }) {
         if (res.ok) return res.json();
 
         return res.json().then((err) => {
-          throw new Error(
-            `Error ${res.status} : ${err.message || res.statusText}`
-          );
+          console.log(err);
+          throw new Error(`${err.title} : ${err.message || res.statusText}`);
         });
       })
       .then((data) => {
@@ -36,7 +35,13 @@ export default function Dictionary({ wordToSearch }) {
   }, [wordToSearch, apiUrl]);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  if (error)
+    return (
+      <div className="not-found-container">
+        <p className="emoji-container">&#x1F615;</p>
+        <p className="not-found-message">{error}</p>
+      </div>
+    );
 
   return (
     <section>
