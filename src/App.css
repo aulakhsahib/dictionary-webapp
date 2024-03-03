@@ -17,4 +17,5 @@
 .source-container a {
     text-decoration: underline;
     color: var(--body-text-color);
+    word-break: break-all;
 }
